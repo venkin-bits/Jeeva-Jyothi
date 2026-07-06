@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — sourced directly from DESIGN.md §1 (color) and §2 (type),
+  confirmed FINAL in SOURCE_OF_TRUTH.md against the working Chunk 1 build.
+  The coffee/lavender experiment explored mid-project is rejected; reverted.
+  These are the ONLY colors this project uses. Do not add ad hoc hex values
+  in components — extend this list first if a new token is genuinely needed.
+*/
+@theme {
+  --color-lavender-50: #f6f3fb;
+  --color-lavender-100: #ede7f6;
+  --color-violet-300: #c4a8e8;
+  --color-violet-500: #8b6bc4;
+  --color-violet-700: #5b4084;
+  --color-cream: #fdfbf7;
+  --color-ink: #2a2438;
+  --color-muted: #8a8296;
+
+  --font-display: var(--font-outfit), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
+
+  --container-content: 1140px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--color-lavender-50);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Shared focus ring — DESIGN.md §6: visible, 2px, offset, never color-only */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-violet-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
